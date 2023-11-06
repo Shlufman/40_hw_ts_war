@@ -1,0 +1,33 @@
+.pageScoreboard{
+    width: 80vh;
+    height: 80vh;
+    background: #f6f3f2;
+    border: green solid 2px;
+    border-radius: 1vh;
+    text-align: center;
+}
+
+.center{
+    color: red;
+    font-size: 7vh;
+}
+.centerScoreboardFirst{
+margin-top: 25vh;
+}
+
+.centerScoreboardSecond{
+    margin-top: 5vh;
+}
+
+.button{
+    font-size: 7vh;
+    color: white;
+    background: #6793c2;
+    border-radius: 2vh;
+    height:17vh;
+    width:25vw;
+}
+
+.buttonScoreboard{
+    margin-top: 10vh;
+}

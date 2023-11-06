@@ -1,0 +1,61 @@
+.pageDesk {
+    width: 80vh;
+    height: 80vh;
+    background: #f6f3f2;
+    border: green solid 2px;
+    border-radius: 1vh;
+    /*text-align: center;*/
+
+}
+.container{
+    margin: 0 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+.cart {
+    height: 25vh;
+    width: 18vh;
+    /*background: #9a9a9d;*/
+    /*border: black solid 2px;*/
+    display: flex;
+    align-items:center;
+    justify-content:center;
+font-size: xxx-large;
+}
+.card2{
+    display: block;
+    align-self: center;
+    height: 25vh;
+    width: 18vh;
+}
+.cartDesk {
+    margin: 5vh auto 0;
+}
+
+.header {
+    color: black;
+    font-size: xxx-large;
+}
+
+.footer{
+    color: black;
+    font-size: xxx-large;
+}
+
+.headerDesk {
+    margin-top: 2vh;
+    margin-left: 1vh;
+}
+
+.button{
+    font-size: 50px;
+    color: white;
+    background: #6793c2;
+    border-radius: 2vh;
+    height:10vh;
+    width:12vw;
+}
+
+.buttonDesk{
+    /*margin-top: 15vh;*/
+}

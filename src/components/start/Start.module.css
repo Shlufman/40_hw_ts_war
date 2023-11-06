@@ -1,0 +1,40 @@
+.pageStart {
+    width: 80vh;
+    height: 80vh;
+    background: #f6f3f2;
+    border: green solid 2px;
+    border-radius: 1vh;
+    text-align: center;
+}
+
+.h1{
+    padding-top: 10vh;
+    color: blue;
+    font-size: xxx-large;
+}
+
+.input{
+  text-align: center;
+    line-height:10vh;
+    font-size: 50px;
+    /*padding:55px 10px;*/
+    height:10vh;
+    width:30vw;
+}
+
+.inputStar{
+    margin-top: 5vh;
+}
+
+.button{
+    font-size: 50px;
+    color: white;
+    background: blue;
+    border-radius: 2vh;
+    height:10vh;
+    width:22vw;
+}
+
+.buttonStar{
+    margin-top: 15vh;
+}
