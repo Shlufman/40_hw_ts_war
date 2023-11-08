@@ -1,6 +1,7 @@
 import React, {ChangeEventHandler, Component, MouseEventHandler} from 'react';
 import style from './Start.module.css'
-import {TFSetUserName} from '../../general/context/AppContextWrapper'
+import {TFSetUserName} from '../../general/context/AppContextWrapper';
+// import { ArrowRight } from 'react-bootstrap-icons';
 
 interface IStateStart {
     currentInputText: string;
@@ -38,6 +39,7 @@ class Start extends Component<IPropsStart, IStateStart> {
                        placeholder={placeholder}/>
                 <button className={`${style.button} ${style.buttonStar}`} onClick={this.handleOnClickButton}>start
                 </button>
+                {/*<ArrowRight/> color="royalblue" size={96}*/}
             </div>
         );
     }
