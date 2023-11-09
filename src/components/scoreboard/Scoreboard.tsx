@@ -1,32 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import style from "./Scoreboard.module.css";
 import {AppContext} from "../../general/context/context";
 
-
-interface IPropsScoreboard{
-
-}
-
-interface IStateScoreboard{
-
-}
-class Scoreboard extends Component <IPropsScoreboard,IStateScoreboard>{
-    render():React.ReactNode {
-        return (
-            <AppContext.Consumer>{
-                value => (
-                    <div className={style.pageScoreboard}>
-                        <div className={`${style.center} ${style.centerScoreboardFirst}`}>LOSE\WIN</div>
-                        <div className={`${style.center} ${style.centerScoreboardSecond}`}>{value.score.computer} - {value.score.user}</div>
-                        <button className={`${style.button} ${style.buttonScoreboard}`} onClick={value.setStart}>Again?</button>
-
-                    </div>
-                )
-            }
-
-            </AppContext.Consumer>
-        );
-    }
+const Scoreboard = () => {
+    const {score,setStart} = useContext(AppContext);
+    return (
+        <div className={style.pageScoreboard}>
+            <div className={`${style.center} ${style.centerScoreboardFirst}`}>LOSE\WIN</div>
+            <div
+                className={`${style.center} ${style.centerScoreboardSecond}`}>{score.computer} - {score.user}</div>
+            <button className={`${style.button} ${style.buttonScoreboard}`} onClick={()=>{setStart(undefined)}}>Again?</button>
+        </div>
+    );
 }
 
 export {Scoreboard};
