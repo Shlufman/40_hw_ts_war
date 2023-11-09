@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, useContext, useEffect, useState} from 'react';
 import {AppContext} from "./context";
 
-interface IPropsApp {
+export interface IPropsApp {
     children: React.ReactNode;
 }
 
@@ -11,12 +11,12 @@ interface IStateApp {
     score: TScore;
 }
 
-type TScore = {
+export type TScore = {
     computer: number;
     user: number;
 }
 
-interface IContext {
+export interface IContext {
     activePage: TPageApp;
     userName?: string;
     score: TScore;
@@ -25,48 +25,46 @@ interface IContext {
     setStart: TFSetStart;
 }
 
-type TFSetUserName = (userName: string) => void;
-type TFSetScore = (score: TScore) => void;
-type TFSetStart = () => void;
+export type TFSetUserName = (userName: string) => void;
+export type TFSetScore = (score: TScore) => void;
+export type TFSetStart = (arg: undefined) => void;
 
-type TPageApp = 'start' | 'desk' | 'scoreboard';
+export type TPageApp = 'start' | 'desk' | 'scoreboard';
 
-class AppContextWrapper extends Component<IPropsApp, IStateApp> {
+const AppContextWrapper = ({children}:IPropsApp) => {
+    const [activePage, setActivePage] = useState<TPageApp>('start');
+    const [score, setScore] = useState<TScore>({computer: 0, user: 0});
+    const [userName, setUserName] = useState<string>('');
 
-    constructor(props: IPropsApp) {
-        super(props);
-        this.state = {activePage: 'start', score: {computer: 0, user: 0}};
+    const getPageDesk: TFSetUserName = (userName) => {
+        setUserName(userName);
+        setActivePage('desk');
     }
 
-    setUserName: TFSetUserName = (userName) => {
-        this.setState({activePage: 'desk', userName});
+    const getPageScoreboard: TFSetScore = (score) => {
+        setScore(score);
+        setActivePage('scoreboard');
     }
 
-    setScore: TFSetScore = (score) => {
-        this.setState({activePage: 'scoreboard', score});
+    const getPageStart: TFSetStart = () => {
+        setActivePage('start');
+        setScore({computer: 0, user: 0});
     }
 
-    setStart: TFSetStart = () => {
-        this.setState({activePage: 'start', score: {computer: 0, user: 0}});
-    }
-
-    render(): React.ReactNode {
-        return (
-            <AppContext.Provider
-                value={{
-                    activePage: this.state.activePage,
-                    userName: this.state.userName,
-                    score: this.state.score,
-                    setUserName: this.setUserName,
-                    setScore: this.setScore,
-                    setStart: this.setStart,
-                }}
-            >
-                {this.props.children}
-            </AppContext.Provider>
-        );
-    }
+    return (
+        <AppContext.Provider
+            value={{
+                activePage,
+                userName,
+                score,
+                setUserName:getPageDesk,
+                setScore:getPageScoreboard,
+                setStart:getPageStart,
+            }}
+        >
+            {children}
+        </AppContext.Provider>
+    );
 }
 
-export {type IStateApp, type IContext, type TFSetScore, type TFSetStart, type TFSetUserName, type TPageApp, type TScore};
 export {AppContextWrapper};
